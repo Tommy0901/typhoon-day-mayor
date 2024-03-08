@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate (models) {
       // define association here
+      Character.hasMany(models.Comment, { foreignKey: 'charId' })
       Character.hasMany(models.Collection, { foreignKey: 'charId' })
     }
   }
