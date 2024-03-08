@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken')
 
 const { errorMsg } = require('../middlewares/message-handler')
 const { currentTaipeiTime } = require('../helpers/time-helpers')
-const { includes } = require('../config/initial/options')
 
 module.exports = {
   signUp: async (req, res, next) => {

@@ -4,6 +4,8 @@ const router = express.Router()
 const { apiErrorHandler } = require('../middlewares/error-handler')
 const { authenticated } = require('../middlewares/auth-handler')
 const { mainScreen } = require('../controllers/character-controller')
+const { outcome } = require('../controllers/ending-controller')
+const { history } = require('../controllers/record-controller')
 const { signUp, signIn, collections } = require('../controllers/user-controller')
 
 router.post('/signup', signUp)
@@ -11,7 +13,9 @@ router.post('/signin', signIn)
 
 router.get('/main/:charId', mainScreen)
 
+router.get('/outcome/:endingId', authenticated, outcome)
 router.get('/collections', authenticated, collections)
+router.get('/history', authenticated, history)
 
 router.get('/', (req, res) => res.send('hello world'))
 
