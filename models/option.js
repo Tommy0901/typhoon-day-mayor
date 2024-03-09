@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate (models) {
       // define association here
       Option.hasMany(models.Record, { foreignKey: 'optionId' })
-      Option.belongsTo(models.Comment, { foreignKey: 'commId' })
+      Option.belongsTo(models.Comment, { foreignKey: 'commId', as: 'characterSpeech' })
     }
   }
   Option.init({
@@ -20,8 +20,11 @@ module.exports = (sequelize, DataTypes) => {
     descriprion: DataTypes.TEXT,
     image: DataTypes.STRING,
     polling: DataTypes.NUMBER,
+    descP: DataTypes.STRING,
     funding: DataTypes.NUMBER,
-    environment: DataTypes.NUMBER
+    descF: DataTypes.STRING,
+    environment: DataTypes.NUMBER,
+    descE: DataTypes.STRING
   }, {
     sequelize,
     underscored: true,

@@ -4,20 +4,29 @@ module.exports = {
   mainScreen: async (req, res, next) => {
     try {
       const { params: { charId: id } } = req
-      const [character, messages] = await Promise.all([
-        Character.findByPk(id, {
-          attributes: ['id', 'name', 'descriprion', 'image'],
+      const character = await Character.findByPk(id, {
+        attributes: ['id', 'name', 'descriprion', 'image'],
+        include: {
+          model: Comment,
+          as: 'characterSpeech',
+          attributes: ['comment'],
           include: {
-            model: Comment,
-            attributes: ['comment'],
-            include: { model: Option, attributes: ['descriprion', 'polling', 'funding', 'environment'] }
+            model: Option,
+            as: 'options',
+            attributes: ['id', 'descriprion', 'polling', 'descP', 'funding', 'descF', 'environment', 'descE']
           }
-        }),
-        Character.findAll({ attributes: ['id', 'name', 'descriprion', 'image'] })
-      ])
+        }
+      })
       const data = {}
       data.character = character
-      data.messages = messages
+      res.json({ status: 'success', data })
+    } catch (err) {
+      next(err)
+    }
+  },
+  allCharacters: async (req, res, next) => {
+    try {
+      const data = await Character.findAll({ attributes: ['id', 'name', 'descriprion', 'image'] })
       res.json({ status: 'success', data })
     } catch (err) {
       next(err)

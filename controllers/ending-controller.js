@@ -1,7 +1,5 @@
 const { unlockable_ending, Ending } = require('../models')
 
-const { currentTaipeiTime } = require('../helpers/time-helpers')
-
 module.exports = {
   outcome: async (req, res, next) => {
     try {
@@ -12,6 +10,14 @@ module.exports = {
       const record = await unlockable_ending.findOne({ where: { endingId, userId: id } })
       if (!record) await unlockable_ending.create({ endingId, userId: id })
       res.json({ status: 'success', data: ending })
+    } catch (err) {
+      next(err)
+    }
+  },
+  allEndings: async (req, res, next) => {
+    try {
+      const data = await Ending.findAll({ attributes: ['id', 'name', 'descriprion', 'image'] })
+      res.json({ status: 'success', data })
     } catch (err) {
       next(err)
     }
