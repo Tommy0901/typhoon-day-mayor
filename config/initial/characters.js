@@ -1,33 +1,33 @@
 module.exports = [{
   name: '氣象學家',
   descriprion: '專業預測天氣，提供關於颱風、降雨等氣象事件的專業建議和意見。',
-  image: 'https://storage.googleapis.com/typhoon-day-mayor/%E6%B0%A3%E8%B1%A1%E5%AD%B8%E5%AE%B6.webp'
+  image: 'https://storage.googleapis.com/typhoon-day-mayor/%E6%B0%A3%E8%B1%A1%E5%AD%B8%E5%AE%B6.png'
 }, {
   name: '上班族',
   descriprion: '忙碌的工作族群，通常需要考慮工作時間、通勤安全等因素。',
-  image: 'https://storage.googleapis.com/typhoon-day-mayor/%E4%B8%8A%E7%8F%AD%E6%97%8F.webp'
+  image: 'https://storage.googleapis.com/typhoon-day-mayor/%E4%B8%8A%E7%8F%AD%E6%97%8F.png'
 }, {
   name: '外送人員',
   descriprion: '負責將外賣送達給顧客的人員，對於天氣變化尤其敏感。',
-  image: null
+  image: 'https://storage.googleapis.com/typhoon-day-mayor/%E5%A4%96%E9%80%81%E4%BA%BA%E5%93%A1.png'
 }, {
   name: '新聞記者',
   descriprion: '負責報導新聞事件，向公眾傳遞即時資訊和故事。',
-  image: 'https://storage.googleapis.com/typhoon-day-mayor/%E6%96%B0%E8%81%9E%E8%A8%98%E8%80%85.webp'
+  image: 'https://storage.googleapis.com/typhoon-day-mayor/%E6%96%B0%E8%81%9E%E8%A8%98%E8%80%85.png'
 }, {
   name: '緊急應變專家',
   descriprion: '擁有應急管理和災害應變專業知識，負責協調應對自然災害和其他緊急情況。',
-  image: 'https://storage.googleapis.com/typhoon-day-mayor/%E7%B7%8A%E6%80%A5%E6%87%89%E8%AE%8A%E5%B0%88%E5%AE%B6.webp'
+  image: 'https://storage.googleapis.com/typhoon-day-mayor/%E7%B7%8A%E6%80%A5%E6%87%89%E8%AE%8A%E5%B0%88%E5%AE%B6.pngㄋ'
 }, {
   name: '學生',
   descriprion: '正在接受教育的年輕人，可能受到天氣狀況影響而影響校園生活和學習。',
-  image: 'https://storage.googleapis.com/typhoon-day-mayor/%E5%AD%B8%E7%94%9F.webp'
+  image: 'https://storage.googleapis.com/typhoon-day-mayor/%E5%AD%B8%E7%94%9F.png'
 }, {
   name: '企業',
   descriprion: '商業組織，可能需要考慮生產、供應鏈、員工安全等多方面問題。',
-  image: null
+  image: 'https://storage.googleapis.com/typhoon-day-mayor/%E4%BC%81%E6%A5%AD.png'
 }, {
   name: '服務業',
   descriprion: '提供服務的行業，如餐廳、酒店等，可能受到天氣影響而影響營運和客戶服務。',
-  image: null
+  image: 'https://storage.googleapis.com/typhoon-day-mayor/%E6%9C%8D%E5%8B%99%E6%A5%AD.png'
 }]
