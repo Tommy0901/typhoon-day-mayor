@@ -18,7 +18,7 @@ const unlockableEndingController = require('../controllers/unlockable_ending-con
 router.post('/signup', userController.signUp)
 router.post('/signin', userController.signIn)
 
-router.get('/main/:charId', characterController.mainScreen)
+router.get('/mainScreen', commentController.mainScreen)
 
 router.get('/unlockableEndings', unlockableEndingController.allUnlockableEndings)
 router.get('/definitions', definitionController.allDefinitions)
@@ -33,6 +33,7 @@ router.get('/events', eventController.allEvents)
 router.get('/users', userController.allUsers)
 
 router.get('/outcome/:endingId', authenticated, endingController.outcome)
+router.post('/progress', authenticated, userController.addCollections)
 router.get('/progress', authenticated, userController.collections)
 router.post('/history', authenticated, recordController.addToHistory)
 router.get('/history', authenticated, recordController.history)

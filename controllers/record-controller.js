@@ -1,11 +1,16 @@
 const { Character, Comment, Option, Record } = require('../models')
 
 const { currentTaipeiTime } = require('../helpers/time-helpers')
+const { errorMsg } = require('../middlewares/message-handler')
 
 module.exports = {
   addToHistory: async (req, res, next) => {
     try {
-      const { body: { optionId }, user: { id: userId } } = req
+      let { body: { optionId }, user: { id: userId } } = req
+      const maxOptionId = await Option.count()
+      optionId = Number.isInteger(optionId) && optionId < maxOptionId && optionId > 0 ? optionId : false
+      if (!optionId) return errorMsg(res, 400, `optionId 請輸入 1 ~ ${maxOptionId} 的有效整數`)
+
       const data = await Record.create({ optionId, userId })
       data.dataValues.createdAt = currentTaipeiTime(data.dataValues.createdAt)
       data.dataValues.updatedAt = currentTaipeiTime(data.dataValues.updatedAt)

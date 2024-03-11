@@ -67,6 +67,53 @@ module.exports = {
       next(err)
     }
   },
+  addCollections: async (req, res, next) => {
+    try {
+      let { body: { charId, endingId }, user: { id: userId } } = req
+
+      const [maxCharId, maxEndingId] = await Promise.all([Character.count(), Ending.count()])
+
+      charId = Number.isInteger(charId) && charId < maxCharId && charId > 0
+        ? charId
+        : charId === undefined
+          ? charId
+          : false
+      endingId = Number.isInteger(endingId) && endingId < maxEndingId && endingId > 0
+        ? endingId
+        : endingId === undefined
+          ? endingId
+          : false
+
+      if (!charId && !endingId) {
+        return errorMsg(res, 400,
+         `charId 請輸入 1 ~ ${maxCharId} 的有效整數; endingId 請輸入 1 ~ ${maxEndingId} 的有效整數`)
+      }
+
+      const [collection, unlockableEnding] = await Promise.all([
+        charId
+          ? Collection.findOne({ where: { charId, userId } })
+          : false,
+        endingId
+          ? unlockable_ending.findOne({ where: { endingId, userId } })
+          : false
+      ])
+      const data = {}
+
+      if (collection === null) {
+        const { dataValues: { id, updatedAt, createdAt, ...newCharacter } } = await Collection.create({ charId, userId })
+        data.newCharacter = newCharacter
+      }
+      if (unlockableEnding === null) {
+        const { dataValues: { id, updatedAt, createdAt, ...newEnding } } = await unlockable_ending.create({ endingId, userId }, { raw: true })
+        data.newEnding = newEnding
+      }
+      !data.newCharacter && !data.newEnding
+        ? errorMsg(res, 400, '角色或結局重複解鎖')
+        : res.json({ status: 'success', data })
+    } catch (err) {
+      next(err)
+    }
+  },
   allUsers: async (req, res, next) => {
     try {
       const users = await User.findAll({
