@@ -16,7 +16,9 @@ module.exports = {
   },
   allEndings: async (req, res, next) => {
     try {
-      const data = await Ending.findAll({ attributes: ['id', 'name', 'descriprion', 'image'] })
+      const data = await Ending.findAll({
+        attributes: ['id', 'name', 'descriprion', 'image']
+      })
       res.json({ status: 'success', data })
     } catch (err) {
       next(err)
