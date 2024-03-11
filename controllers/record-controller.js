@@ -45,5 +45,19 @@ module.exports = {
     } catch (err) {
       next(err)
     }
+  },
+  allRecords: async (req, res, next) => {
+    try {
+      const { query: { userId } } = req
+      const records = await Record.findAll(userId ? { where: { userId } } : {})
+      const data = records.map(data => {
+        data.dataValues.updatedAt = currentTaipeiTime(data.dataValues.updatedAt)
+        data.dataValues.createdAt = currentTaipeiTime(data.dataValues.createdAt)
+        return data
+      })
+      res.json({ status: 'success', data })
+    } catch (err) {
+      next(err)
+    }
   }
 }

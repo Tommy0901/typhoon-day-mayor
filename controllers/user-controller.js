@@ -66,5 +66,20 @@ module.exports = {
     } catch (err) {
       next(err)
     }
+  },
+  allUsers: async (req, res, next) => {
+    try {
+      const users = await User.findAll({
+        attributes: ['id', 'name', 'email']
+      })
+      const data = users.map(data => {
+        data.dataValues.updatedAt = currentTaipeiTime(data.dataValues.updatedAt)
+        data.dataValues.createdAt = currentTaipeiTime(data.dataValues.createdAt)
+        return data
+      })
+      res.json({ status: 'success', data })
+    } catch (err) {
+      next(err)
+    }
   }
 }
