@@ -6,7 +6,7 @@ module.exports = {
       CREATE TABLE IF NOT EXISTS Options (
         id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
         comm_id INT NOT NULL,
-        descriprion TEXT NOT NULL,
+        description TEXT NOT NULL,
         image VARCHAR(255),
         polling INT NOT NULL,
         desc_p VARCHAR(255),

@@ -17,11 +17,11 @@ module.exports = {
         include: [{
           model: Character,
           as: 'character',
-          attributes: ['id', 'name', 'descriprion', 'image']
+          attributes: ['id', 'name', 'description', 'image']
         }, {
           model: Option,
           as: 'options',
-          attributes: ['id', 'descriprion', 'polling', 'descP', 'funding', 'descF', 'environment', 'descE']
+          attributes: ['id', 'description', 'polling', 'descP', 'funding', 'descF', 'environment', 'descE']
         }],
         where: { id: randomCommentId }
       })
@@ -44,7 +44,7 @@ module.exports = {
         include: {
           model: Option,
           as: 'options',
-          attributes: ['id', 'descriprion', 'polling', 'descP', 'funding', 'descF', 'environment', 'descE']
+          attributes: ['id', 'description', 'polling', 'descP', 'funding', 'descF', 'environment', 'descE']
         }
       })
       res.json({ status: 'success', data })

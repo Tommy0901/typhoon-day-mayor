@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Location.init({
     name: DataTypes.STRING,
-    descriprion: DataTypes.TEXT,
+    description: DataTypes.TEXT,
     image: DataTypes.STRING,
     polling: DataTypes.NUMBER,
     funding: DataTypes.NUMBER,

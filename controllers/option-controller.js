@@ -6,7 +6,7 @@ module.exports = {
       res.json({
         status: 'success',
         data: await Option.findAll({
-          attributes: ['id', 'descriprion', 'image', 'polling', 'descP', 'funding', 'descF', 'environment', 'descE']
+          attributes: ['id', 'description', 'image', 'polling', 'descP', 'funding', 'descF', 'environment', 'descE']
         })
       })
     } catch (err) {

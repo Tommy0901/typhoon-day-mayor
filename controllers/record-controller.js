@@ -27,7 +27,7 @@ module.exports = {
         include: {
           model: Option,
           as: 'option',
-          attributes: ['id', 'descriprion', 'polling', 'descP', 'funding', 'descF', 'environment', 'descE'],
+          attributes: ['id', 'description', 'polling', 'descP', 'funding', 'descF', 'environment', 'descE'],
           include: {
             model: Comment,
             as: 'characterSpeech',

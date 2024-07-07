@@ -4,7 +4,7 @@ module.exports = {
   allDefinitions: async (req, res, next) => {
     try {
       const data = await Definition.findAll({
-        attributes: ['id', 'name', 'descriprion', 'image']
+        attributes: ['id', 'name', 'description', 'image']
       })
       res.json({ status: 'success', data })
     } catch (err) {

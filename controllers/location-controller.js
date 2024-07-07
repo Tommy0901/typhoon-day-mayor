@@ -4,7 +4,7 @@ module.exports = {
   allLocations: async (req, res, next) => {
     try {
       const data = await Location.findAll({
-        attributes: ['id', 'name', 'descriprion', 'image', 'polling', 'funding', 'environment']
+        attributes: ['id', 'name', 'description', 'image', 'polling', 'funding', 'environment']
       })
       res.json({ status: 'success', data })
     } catch (err) {

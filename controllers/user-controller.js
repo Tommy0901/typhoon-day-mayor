@@ -51,11 +51,11 @@ module.exports = {
       const { user: { id } } = req
       const [characters, endings] = await Promise.all([
         Character.findAll({
-          attributes: ['id', 'name', 'descriprion', 'image'],
+          attributes: ['id', 'name', 'description', 'image'],
           includes: { model: Collection, attributes: [], where: { userId: id } }
         }),
         Ending.findAll({
-          attributes: ['id', 'name', 'descriprion', 'image'],
+          attributes: ['id', 'name', 'description', 'image'],
           includes: { model: unlockable_ending, attributes: [], where: { userId: id } }
         })
       ])

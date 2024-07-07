@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Ending.init({
     name: DataTypes.STRING,
-    descriprion: DataTypes.TEXT,
+    description: DataTypes.TEXT,
     image: DataTypes.STRING
   }, {
     sequelize,

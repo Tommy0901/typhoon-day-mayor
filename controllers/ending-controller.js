@@ -5,7 +5,7 @@ module.exports = {
     try {
       const { params: { endingId }, user: { id } } = req
       const ending = await Ending.findByPk(endingId, {
-        attributes: ['id', 'name', 'descriprion', 'image']
+        attributes: ['id', 'name', 'description', 'image']
       })
       const record = await unlockable_ending.findOne({ where: { endingId, userId: id } })
       if (!record) await unlockable_ending.create({ endingId, userId: id })
@@ -17,7 +17,7 @@ module.exports = {
   allEndings: async (req, res, next) => {
     try {
       const data = await Ending.findAll({
-        attributes: ['id', 'name', 'descriprion', 'image']
+        attributes: ['id', 'name', 'description', 'image']
       })
       res.json({ status: 'success', data })
     } catch (err) {

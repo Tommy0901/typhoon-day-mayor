@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Option.init({
     // comm_Id: DataTypes.NUMBER,
-    descriprion: DataTypes.TEXT,
+    description: DataTypes.TEXT,
     image: DataTypes.STRING,
     polling: DataTypes.NUMBER,
     descP: DataTypes.STRING,

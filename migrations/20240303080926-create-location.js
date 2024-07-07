@@ -6,7 +6,7 @@ module.exports = {
       CREATE TABLE IF NOT EXISTS Locations (
         id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
         name VARCHAR(50) NOT NULL,
-        descriprion TEXT NOT NULL,
+        description TEXT NOT NULL,
         image VARCHAR(255),
         polling INT NOT NULL,
         funding INT NOT NULL,
