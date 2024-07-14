@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const { apiErrorHandler } = require('../middlewares/error-handler')
-const { authenticated } = require('../middlewares/auth-handler')
+const { authenticated, googleOauth, googleOauthRedirect } = require('../middlewares/auth-handler')
 const userController = require('../controllers/user-controller')
 const optionController = require('../controllers/option-controller')
 const endingController = require('../controllers/ending-controller')
@@ -15,6 +15,9 @@ const locationController = require('../controllers/location-controller')
 const collectionController = require('../controllers/collection-controller')
 const definitionController = require('../controllers/definition-controller')
 const unlockableEndingController = require('../controllers/unlockable_ending-controller')
+
+router.get('/oauth/google', googleOauth)
+router.get('/oauth/google/callback', googleOauthRedirect)
 
 router.post('/signup', userController.signUp)
 router.post('/signin', userController.signIn)
